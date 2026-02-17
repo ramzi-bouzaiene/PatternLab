@@ -124,6 +124,228 @@ Edit `/src/shared/theme/theme.ts` to customize colors, fonts, and spacing.
 ### Adding UI Components
 Add new components to `/src/shared/ui/` following the existing patterns.
 
+## 🤝 Contributing
+
+We welcome contributions to PatternLab! Whether you want to add new patterns, improve existing features, or fix bugs, your help is appreciated.
+
+### 📋 Contributing Guidelines
+
+#### Getting Started
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/yourusername/PatternLab.git`
+3. Install dependencies: `npm install`
+4. Create a new branch: `git checkout -b feature/your-feature-name`
+
+#### Development Workflow
+```bash
+# Start development server
+npm run dev
+
+# Run tests while developing
+npm test
+
+# Check code quality
+npm run lint
+npm run format
+
+# Build before submitting
+npm run build
+```
+
+#### 🎯 What We're Looking For
+
+**New Design Patterns**
+- Creational, Structural, or Behavioral patterns
+- Real-world examples with both good and bad implementations
+- Comprehensive documentation and use cases
+- Interactive diagrams showing pattern structure
+
+**Feature Improvements**
+- Enhanced Monaco Editor functionality
+- Better diagram animations and interactions
+- UI/UX improvements
+- Performance optimizations
+
+**Bug Fixes**
+- TypeScript type issues
+- Component rendering problems
+- Test failures
+- Documentation errors
+
+#### 📝 Adding a New Pattern
+
+1. **Create Pattern Structure**
+   ```bash
+   mkdir src/features/patterns/your-pattern-name
+   ```
+
+2. **Implement Pattern Module**
+   ```typescript
+   // src/features/patterns/your-pattern-name/your-pattern.pattern.ts
+   import type { PatternModule } from '@core/types'
+
+   export const yourPattern: PatternModule = {
+     id: 'your-pattern-name',
+     name: 'Your Pattern Name',
+     category: 'behavioral', // creational | structural | behavioral
+     difficulty: 'intermediate', // beginner | intermediate | advanced
+     description: 'Brief description of what this pattern does',
+     whenToUse: [
+       'When you need to...',
+       'In scenarios where...',
+     ],
+     whenNotToUse: [
+       'Avoid when...',
+       'Not suitable for...',
+     ],
+     badExample: `// ❌ Anti-Pattern Example
+   class BadExample {
+     // Show what NOT to do
+   }`,
+     goodExample: `// ✅ Best Practice Example
+   class GoodExample {
+     // Show the proper implementation
+   }`,
+     diagram: {
+       nodes: [
+         {
+           id: 'node1',
+           type: 'class',
+           label: 'ExampleClass',
+           position: { x: 100, y: 100 },
+           // ... more node properties
+         }
+       ],
+       edges: [
+         {
+           id: 'edge1',
+           type: 'inheritance',
+           source: 'node1',
+           target: 'node2',
+         }
+       ],
+     },
+     relatedPatterns: ['other-pattern-id'],
+     tags: ['tag1', 'tag2'],
+   }
+   ```
+
+3. **Export and Register**
+   ```typescript
+   // src/features/patterns/your-pattern-name/index.ts
+   export { yourPattern } from './your-pattern.pattern'
+
+   // Add to src/features/patterns/index.ts
+   import { yourPattern } from './your-pattern-name'
+   // Add to registry initialization
+   ```
+
+4. **Add Tests**
+   ```typescript
+   // src/features/patterns/your-pattern-name/your-pattern.test.ts
+   import { describe, it, expect } from 'vitest'
+   import { yourPattern } from './your-pattern.pattern'
+
+   describe('Your Pattern', () => {
+     it('should have required properties', () => {
+       expect(yourPattern.id).toBe('your-pattern-name')
+       expect(yourPattern.category).toBe('behavioral')
+       // ... more tests
+     })
+   })
+   ```
+
+#### 🧪 Testing Requirements
+
+- All new patterns must include tests
+- UI components should have component tests
+- Maintain test coverage above 80%
+- Run `npm test` before submitting
+
+#### 📏 Code Style
+
+We use ESLint and Prettier for consistent code formatting:
+
+```bash
+# Check linting
+npm run lint
+
+# Auto-fix linting issues
+npm run lint:fix
+
+# Format code
+npm run format
+```
+
+**TypeScript Guidelines:**
+- Use strict type checking
+- Prefer interfaces over types for object shapes
+- Use proper generic constraints
+- Document complex type definitions
+
+**Component Guidelines:**
+- Use functional components with hooks
+- Implement proper TypeScript props interfaces
+- Follow accessibility best practices
+- Use semantic HTML elements
+
+#### 📤 Pull Request Process
+
+1. **Before Submitting**
+   - [ ] Tests pass: `npm test`
+   - [ ] Build succeeds: `npm run build`
+   - [ ] Code is linted: `npm run lint`
+   - [ ] Code is formatted: `npm run format`
+
+2. **PR Description Should Include**
+   - Clear description of changes
+   - Screenshots for UI changes
+   - Test coverage information
+   - Related issue numbers (if applicable)
+
+3. **PR Title Format**
+   ```
+   feat: add Strategy pattern implementation
+   fix: resolve Monaco Editor theme switching bug
+   docs: update pattern contribution guidelines
+   test: add unit tests for Observer pattern
+   ```
+
+#### 🐛 Bug Reports
+
+When reporting bugs, please include:
+- OS and browser version
+- Node.js version
+- Steps to reproduce
+- Expected vs actual behavior
+- Console errors (if any)
+- Screenshots (for UI issues)
+
+#### 💡 Feature Requests
+
+For new features, please:
+- Check existing issues first
+- Describe the use case clearly
+- Explain how it improves the learning experience
+- Consider implementation complexity
+
+#### 🏷️ Issue Labels
+
+- `good-first-issue` - Perfect for newcomers
+- `pattern-request` - New design pattern suggestions
+- `enhancement` - Feature improvements
+- `bug` - Something isn't working
+- `documentation` - Documentation improvements
+- `help-wanted` - Extra attention needed
+
+### 📞 Getting Help
+
+- Join our discussions in [GitHub Discussions](../../discussions)
+- Ask questions in issues with `help-wanted` label
+- Review existing patterns for implementation examples
+
+Thank you for contributing to PatternLab! 🎉
+
 ## 📄 License
 
 MIT License
