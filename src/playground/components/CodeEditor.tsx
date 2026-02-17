@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { usePlaygroundStore } from '@playground/store'
 
 interface CodeEditorProps {
-  defaultValue?: string
+  value?: string
   language?: string
   onChange?: (value: string) => void
   readOnly?: boolean
@@ -11,7 +11,7 @@ interface CodeEditorProps {
 }
 
 export function CodeEditor({
-  defaultValue = '',
+  value = '',
   language = 'typescript',
   onChange,
   readOnly = false,
@@ -35,9 +35,10 @@ export function CodeEditor({
       <Editor
         height={height}
         defaultLanguage={language}
-        defaultValue={defaultValue}
-        theme={theme}
+        value={value}
+        theme={theme || 'vs-dark'}
         onChange={handleEditorChange}
+        loading={<div className="flex items-center justify-center h-full text-gray-400">Loading editor...</div>}
         options={{
           readOnly,
           fontSize,
@@ -51,6 +52,8 @@ export function CodeEditor({
           padding: { top: 16, bottom: 16 },
           fontFamily: "'Fira Code', 'Cascadia Code', Consolas, monospace",
           fontLigatures: true,
+          contextmenu: false,
+          selectOnLineNumbers: true,
         }}
       />
     </motion.div>

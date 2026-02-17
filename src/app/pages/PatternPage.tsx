@@ -63,7 +63,7 @@ export function PatternPage() {
             <h2 className="text-xl font-semibold text-white mb-4">
               📊 Class Diagram
             </h2>
-            <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+            <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden h-[400px]">
               <DiagramCanvas config={pattern.diagram} />
             </div>
           </motion.section>
@@ -117,15 +117,15 @@ export function PatternPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="h-[700px]"
         >
           <h2 className="text-xl font-semibold text-white mb-4">
             💻 Code Examples
           </h2>
-          <div className="bg-gray-800 rounded-xl border border-gray-700 h-[calc(100%-2rem)] overflow-hidden">
+          <div className="bg-gray-800 rounded-xl border border-gray-700 h-[600px] overflow-hidden">
             <CodeComparison
               badExample={pattern.badExample}
               goodExample={pattern.goodExample}
+              language="typescript"
             />
           </div>
         </motion.section>
