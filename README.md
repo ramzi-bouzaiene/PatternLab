@@ -2,7 +2,7 @@
 
 An interactive learning platform for frontend developers to master software design patterns through live code editing, animated diagrams, and practical examples.
 
-## 🚀 Features
+## Features
 
 - **Interactive Code Editor**: Monaco Editor integration for live code editing
 - **Animated Diagrams**: Framer Motion-powered SVG diagrams visualizing pattern structures
@@ -11,7 +11,7 @@ An interactive learning platform for frontend developers to master software desi
 - **Global State Management**: Zustand for efficient state management
 - **Type-Safe**: Full TypeScript support
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 /src
@@ -42,7 +42,7 @@ An interactive learning platform for frontend developers to master software desi
   /test             # Test setup
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **React 19** - UI Framework
 - **TypeScript** - Type Safety
@@ -53,7 +53,7 @@ An interactive learning platform for frontend developers to master software desi
 - **React Router** - Routing
 - **Vitest** - Testing
 
-## � Deployment
+## Deployment
 
 ### Vercel (Automatic)
 
@@ -79,7 +79,7 @@ npm run build
 # Upload dist/ contents to any static hosting service
 ```
 
-## �📦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -102,7 +102,7 @@ npm test
 npm run build
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run tests
@@ -115,7 +115,7 @@ npm run test:ui
 npm run test:coverage
 ```
 
-## 📖 Adding New Patterns
+## Adding New Patterns
 
 1. Create a new folder in `/src/features/patterns/[patternId]`
 2. Define the pattern module implementing `PatternModule` interface:
@@ -142,7 +142,7 @@ export const myPattern: PatternModule = {
 
 3. Export from the pattern's index file and register in `/src/features/patterns/index.ts`
 
-## 🎨 Customization
+## Customization
 
 ### Theme
 Edit `/src/shared/theme/theme.ts` to customize colors, fonts, and spacing.
@@ -150,11 +150,11 @@ Edit `/src/shared/theme/theme.ts` to customize colors, fonts, and spacing.
 ### Adding UI Components
 Add new components to `/src/shared/ui/` following the existing patterns.
 
-## 🤝 Contributing
+## Contributing
 
 All contributions are welcome to PatternLab! Whether you want to add new patterns, improve existing features, or fix bugs, your help is appreciated.
 
-### 📋 Contributing Guidelines
+### Contributing Guidelines
 
 #### Getting Started
 1. Fork the repository
@@ -178,7 +178,7 @@ npm run format
 npm run build
 ```
 
-#### 🎯 What We're Looking For
+#### What We're Looking For
 
 **New Design Patterns**
 - Creational, Structural, or Behavioral patterns
@@ -198,7 +198,7 @@ npm run build
 - Test failures
 - Documentation errors
 
-#### 📝 Adding a New Pattern
+#### Adding a New Pattern
 
 1. **Create Pattern Structure**
    ```bash
@@ -281,14 +281,14 @@ npm run build
    })
    ```
 
-#### 🧪 Testing Requirements
+#### Testing Requirements
 
 - All new patterns must include tests
 - UI components should have component tests
 - Maintain test coverage above 80%
 - Run `npm test` before submitting
 
-#### 📏 Code Style
+#### Code Style
 
 We use ESLint and Prettier for consistent code formatting:
 
