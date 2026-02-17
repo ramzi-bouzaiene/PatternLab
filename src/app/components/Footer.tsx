@@ -49,7 +49,7 @@ export function Footer() {
       transition={{ duration: 0.3 }}
       className="bg-gray-900 border-t border-gray-800 py-4 px-6"
     >
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="flex items-center justify-between">
         {/* Copyright */}
         <div className="text-sm text-gray-400">
           <span>© {currentYear} </span>

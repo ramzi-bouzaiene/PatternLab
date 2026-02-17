@@ -53,7 +53,33 @@ An interactive learning platform for frontend developers to master software desi
 - **React Router** - Routing
 - **Vitest** - Testing
 
-## 📦 Getting Started
+## � Deployment
+
+### Vercel (Automatic)
+
+This project is configured for automatic deployment on Vercel. When connected to your GitHub repository:
+
+1. **Automatic Deployments**: Every push to the `main` branch triggers a new deployment
+2. **Preview Deployments**: Pull requests automatically create preview deployments
+3. **Custom Configuration**: The `vercel.json` file optimizes build settings and caching
+
+**Vercel Configuration:**
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Framework**: Vite (auto-detected)
+- **Node.js Version**: 18.x (recommended)
+
+### Manual Deployment
+
+```bash
+# Build for production
+npm run build
+
+# The dist/ folder contains the production build
+# Upload dist/ contents to any static hosting service
+```
+
+## �📦 Getting Started
 
 ### Prerequisites
 
