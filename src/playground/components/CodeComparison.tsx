@@ -19,9 +19,9 @@ export function CodeComparison({
   const currentCode = activeTab === 'bad' ? badExample : goodExample
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="h-full flex flex-col">
       {/* Tab Header */}
-      <div className="flex gap-2 border-b border-gray-700 p-2 bg-gray-900">
+      <div className="flex gap-2 border-b border-gray-700 p-2 bg-gray-900 shrink-0">
         <button
           onClick={() => setActiveTab('bad')}
           className={`relative rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
@@ -57,13 +57,12 @@ export function CodeComparison({
       </div>
 
       {/* Code Content */}
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1 min-h-0">
         <CodeEditor
-          key={activeTab} // Force re-render when tab changes
+          key={activeTab}
           value={currentCode}
           language={language}
           readOnly
-          height="100%"
         />
       </div>
     </div>

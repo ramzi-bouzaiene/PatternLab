@@ -1,13 +1,12 @@
 import Editor from '@monaco-editor/react'
-import { motion } from 'framer-motion'
 import { usePlaygroundStore } from '@playground/store'
+import { useMemo } from 'react'
 
 interface CodeEditorProps {
   value?: string
   language?: string
   onChange?: (value: string) => void
   readOnly?: boolean
-  height?: string | number
 }
 
 export function CodeEditor({
@@ -15,33 +14,42 @@ export function CodeEditor({
   language = 'typescript',
   onChange,
   readOnly = false,
-  height = '100%',
 }: CodeEditorProps) {
   const { theme, fontSize } = usePlaygroundStore()
 
-  const handleEditorChange = (value: string | undefined) => {
-    if (value !== undefined && onChange) {
-      onChange(value)
+  const handleEditorChange = (newValue: string | undefined) => {
+    if (newValue !== undefined && onChange) {
+      onChange(newValue)
     }
   }
 
+  // Calculate height based on number of lines
+  const editorHeight = useMemo(() => {
+    const lineCount = value.split('\n').length
+    const lineHeight = (fontSize || 14) * 1.5 // Approximate line height
+    const padding = 32 // Top and bottom padding
+    const minHeight = 200
+    const maxHeight = 600
+    const calculatedHeight = lineCount * lineHeight + padding
+    return Math.min(Math.max(calculatedHeight, minHeight), maxHeight)
+  }, [value, fontSize])
+
   return (
-    <motion.div
-      className="h-full w-full overflow-hidden rounded-lg border border-gray-700"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-    >
+    <div className="h-full w-full overflow-hidden">
       <Editor
-        height={height}
+        height={editorHeight}
         defaultLanguage={language}
         value={value}
         theme={theme || 'vs-dark'}
         onChange={handleEditorChange}
-        loading={<div className="flex items-center justify-center h-full text-gray-400">Loading editor...</div>}
+        loading={
+          <div className="flex items-center justify-center h-full bg-gray-900 text-gray-400">
+            Loading editor...
+          </div>
+        }
         options={{
           readOnly,
-          fontSize,
+          fontSize: fontSize || 14,
           minimap: { enabled: false },
           lineNumbers: 'on',
           roundedSelection: true,
@@ -56,6 +64,6 @@ export function CodeEditor({
           selectOnLineNumbers: true,
         }}
       />
-    </motion.div>
+    </div>
   )
 }
